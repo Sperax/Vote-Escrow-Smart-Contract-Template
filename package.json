@@ -1,0 +1,39 @@
+{
+  "name": "vote-escrow-smart-contract-template",
+  "version": "1.0.0",
+  "description": "A Vote-escrow solidity contract template along with the reward distribution logic.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "brownie test tests/*",
+    "install-pip-packages": "pip3 install -r requirements.txt",
+    "initialize-pre-commit": "pre-commit install -c ./dev-utils/.pre-commit-config.yaml",
+    "prepare": "npm-run-all install-pip-packages initialize-pre-commit",
+    "solhint": "./node_modules/.bin/solhint -f table -c ./dev-utils/.solhint.json",
+    "prettier:solidity": "./node_modules/.bin/prettier --write **/*.sol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sperax/Vote-Escrow-Smart-Contract-Template.git"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "^0.0.5"
+  },
+  "keywords": [
+    "Vote-Escrow",
+    "Reward",
+    "Distributor"
+  ],
+  "author": "Sperax Inc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sperax/Vote-Escrow-Smart-Contract-Template/issues"
+  },
+  "homepage": "https://github.com/Sperax/Vote-Escrow-Smart-Contract-Template#readme"
+}

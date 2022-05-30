@@ -1,0 +1,55 @@
+repos:
+
+# List of supported hooks: https://pre-commit.com/hooks.html
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: check-yaml
+    -   id: double-quote-string-fixer
+
+-   repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+    -   id: flake8
+
+-   repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.13
+    hooks:
+    -   id: mdformat
+
+# Add all the required custom hooks here
+-   repo: local
+    hooks:
+    -   id: restrict-user
+        name: restrict user from committing to master
+        entry: bash ./dev-utils/restricted-user.sh
+        language: system
+
+    -   id: compile-contracts
+        name: Brownie compile contracts
+        entry: brownie compile
+        verbose: true
+        language: system
+        files: ^(contracts/|interfaces/|libraries/)
+
+    # -   id: prettier-solidity
+    #     name: format solidity files
+    #     entry: npm run prettier:solidity
+    #     language: node
+    #     files: ^(contracts/|interfaces/|libraries/)
+
+    -   id: solhint
+        name: Linting for smart contracts
+        entry: npm run solhint
+        language: node
+        verbose: true
+        files: ^(contracts/|interfaces/|libraries/)
+
+    # Static code analyzer for solidity (Currently fails to resolve the dependency properly)
+    # -   id: slither
+    #     name: Slither analysis for smart contracts
+    #     entry: slither . --ignore-compile --exclude-dependencies --exclude-informational --filter-paths
+    #     language: system
+    #     files: ^(contracts/)
+
