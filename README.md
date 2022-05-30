@@ -1,7 +1,9 @@
 # veToken contract design
 
-Staking contract for Token, tokens are called veToken
-(Replace the token with your own token name)
+This repo provides a template project for creating a voting escrow smart contract. This project is built using the brownie framework. 
+Users can stake their tokens (placeholder name: Token). Staked tokens are called veToken. Customize Token and veToken with your token name.
+
+This voting escrow smart contract is inspired by Curve's veCRV smart contract which was written in Vyper. This project was written in Solidity by the Sperax team (www.sperax.io) with multiple optimizations and improvements. This is our contribution to the developer community.
 
 ## User checkpoint functions
 
